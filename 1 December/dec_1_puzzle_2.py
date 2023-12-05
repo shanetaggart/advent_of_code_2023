@@ -51,23 +51,28 @@ def extract_coordinates(messy_coords_string):
 
     """
 
-    # Convert the provided String into an Array, each item separated by a carriage return.
-    messy_coords_array = messy_coords_string.split("\n")
-
     # Store the String versions of all ten singular digits.
     string_numerals = [
-        "zero",
-        "one",
-        "two",
-        "three",
-        "four",
-        "five",
-        "six",
-        "seven",
-        "eight",
-        "nine"
+        ["zero", "0"],
+        ["one", "1"],
+        ["two", "2"],
+        ["three", "3"],
+        ["four", "4"],
+        ["five", "5"],
+        ["six", "6"],
+        ["seven", "7"],
+        ["eight", "8"],
+        ["nine", "9"]
     ]
 
+    # Iterate over all of the string numerals and replace the string versions with numerals.
+    for key, value in enumerate(string_numerals):
+        messy_coords_string = messy_coords_string.replace(value[0], value[1])
+
+    # Convert the provided String into an Array, each item separated by a carriage return.
+    messy_coords_array = messy_coords_string.split("\n")
+    print(messy_coords_array)
+    
     # Create empty Arrays to store the coordinates at various stages of parsing.
     clean_coords_array = []
     individual_coords = []
@@ -82,8 +87,6 @@ def extract_coordinates(messy_coords_string):
             if char.isnumeric():
                 # When the current character is a numeral, append it to the String.
                 numerals_in_line += char
-            else:
-                # TODO Puzzle 2 solution.
         # When the current Iteration have finished parsing, append the numerals to the Array.
         clean_coords_array.append(numerals_in_line)
 

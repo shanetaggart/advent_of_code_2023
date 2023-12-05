@@ -5,7 +5,7 @@ Author:         Shane Taggart
 Author Date:    5 December, 2023
 Details:        The constants containing the puzzle input for puzzle one, parts one and two.
 """
-EXAMPLE_INPUT = """1abc2
+EXAMPLE_INPUT = """1oneabc2
 pqr3stu8vwx
 a1b2c3d4e5f
 treb7uchet"""
@@ -1009,5 +1009,4 @@ lpklkskgcsr8eightsbxcjx
 4threelfvzndfive
 nx9ninekvzzdlncblkdqbgspdfkcx
 tfn5kx6twojmzgbdznc2
-5bszzkpcdxqkvkf7tgcone2
-"""
+5bszzkpcdxqkvkf7tgcone2"""
