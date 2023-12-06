@@ -1,53 +1,9 @@
-<style>
-    body {
-        font-family: 'Lato', sans-serif;
-    }
-
-    span {
-        font-size: 1.5rem;
-        display: block;
-    }
-
-    span::before,
-    summary::before {
-        padding: 0 0.5em 0 0;
-    }
-
-    .complete::before {
-        content: '\2705';
-    }
-    
-    .work-in-progress::before {
-        content: '\1F6A7';
-    }
-
-    .puzzle::before {
-        content: '\1F9E9';
-    }
-
-    .thoughts::before {
-        content: '\1F9E0';
-    }
-
-    summary {
-        font-size: 1.5rem;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: opacity 0.25s ease;
-    }
-
-    summary:hover {
-        opacity: 0.7;
-    }
-
-</style>
-
 # 1 December, 2023
 
-<span class="complete">Complete</span>
+✔️ Complete
 
 <details>
-<summary class="puzzle">Puzzle Details</summary>
+<summary>🧩 Puzzle Details</summary>
 
 **Part 1:**
 
@@ -92,8 +48,8 @@ What is the sum of all of the calibration values?
 
 </details>
 
-<details open>
-<summary class="thoughts">Thought Process</summary>
+<details>
+<summary>🧠 Thought Process</summary>
 
 **Part 1**
 
