@@ -52,65 +52,55 @@ def extract_coordinates(messy_coords_string):
     """
 
     # Store the String versions of all ten singular digits.
-    string_numerals = [
-        ["zero", "0"],
-        ["one", "1"],
-        ["two", "2"],
-        ["three", "3"],
-        ["four", "4"],
-        ["five", "5"],
-        ["six", "6"],
-        ["seven", "7"],
-        ["eight", "8"],
-        ["nine", "9"]
+    string_digits = [
+        "zero",
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six",
+        "seven",
+        "eight",
+        "nine"
     ]
 
-    # Iterate over all of the string numerals and replace the string versions with numerals.
-    for key, value in enumerate(string_numerals):
-        messy_coords_string = messy_coords_string.replace(value[0], value[1])
-
-    # Convert the provided String into an Array, each item separated by a carriage return.
+    # Convert the provided String to an Array by separating by a carriage return.
     messy_coords_array = messy_coords_string.split("\n")
-    print(messy_coords_array)
     
-    # Create empty Arrays to store the coordinates at various stages of parsing.
-    clean_coords_array = []
-    individual_coords = []
-
+    # Instantiate an empty integer to store the sum of the coordinates.
+    coords_sum = int()
+    
     # Iterate over each line in the Array.
     for line in messy_coords_array:
-        # Create/reset the String, which will store the numerals found in the current line.
-        numerals_in_line = ""
-        # Iterate over every character inside of each line in the Array.
-        for char in line:
-            # Conditional to check if the current character is a digit.
+        # Create a temporary Array to hold the digits found in the current line.
+        digits_in_line = []
+        # Iterate over every character in the current line.
+        for index, char in enumerate(line):
+            # Check if the current character is a digit.
             if char.isdigit():
-                # When the current character is a numeral, append it to the String.
-                numerals_in_line += char
-        # When the current Iteration have finished parsing, append the numerals to the Array.
-        clean_coords_array.append(numerals_in_line)
+                # If it is a digit, append that digit to the Array
+                digits_in_line.append(char)
+            # Iterate over every Srting version of the digits zero through nine.
+            for key, digit in enumerate(string_digits):
+                # Check if the current line, starting at our current loop index, starts with that digit.
+                if line[index:].startswith(digit):
+                    # If it does start with that digit, add it's key to the Array.
+                    digits_in_line.append(str(key))
+        # Convert the first and last digits to Integers and add them to the sum.
+        if digits_in_line:
+            coords_sum += int(digits_in_line[0] + digits_in_line[-1])
 
-    # Iterate over every coordinate inside of the Array.
-    for coord in clean_coords_array:
-        # Ensure that the current coordinate is not empty.
-        if coord != "":
-            # Store the first and last numeral.
-            new_coord = coord[0] + coord[-1]
-            # Append the new coordinate to the Array.
-            individual_coords.append(int(new_coord))
-
-    # Store the sum of all of the coordinates in the Array, and return it.
-    coords_sum = sum(individual_coords)
+    # Return the sum after iterating over all Array items.
     return coords_sum
 
 if __name__ == "__main__":
-    # Store the results of the function for easy formatting.
-    example_output = extract_coordinates(dec_1_puzzle_input.EXAMPLE_INPUT)
-    puzzle_output = extract_coordinates(dec_1_puzzle_input.PUZZLE_INPUT)
+    # Print the example output to the CLI.
+    EXAMPLE_OUTPUT = extract_coordinates(dec_1_puzzle_input.SECOND_EXAMPLE_INPUT)
+    example_fstring = f"Example Puzzle Input Result: {EXAMPLE_OUTPUT}"
+    print(example_fstring)
 
-    # Create format strings for CLI output.
-    example_fstring = f"Example Puzzle Input Result: {example_output}"
-    puzzle_fstring = f"Puzzle Input Result: {puzzle_output}"
-
-    # Print the result to the CLI.
-    print(example_fstring + "\n" + puzzle_fstring)
+    # Print the puzzle output to the CLI
+    PUZZLE_OUTPUT = extract_coordinates(dec_1_puzzle_input.PUZZLE_INPUT)
+    puzzle_fstring = f"Puzzle Input Result: {PUZZLE_OUTPUT}"
+    print(puzzle_fstring)
