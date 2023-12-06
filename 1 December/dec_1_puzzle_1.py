@@ -71,8 +71,8 @@ def extract_coordinates(messy_coords_string):
         numerals_in_line = ""
         # Iterate over every character inside of each line in the Array.
         for char in line:
-            # Conditional to check if the current character is a numeral.
-            if char.isnumeric():
+            # Conditional to check if the current character is a digit.
+            if char.isdigit():
                 # When the current character is a numeral, append it to the String.
                 numerals_in_line += char
         # When the current Iteration have finished parsing, append the numerals to the Array.

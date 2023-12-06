@@ -10,7 +10,15 @@ pqr3stu8vwx
 a1b2c3d4e5f
 treb7uchet"""
 
-PUZZLE_INPUT = """9eightone
+SECOND_EXAMPLE_INPUT = """two1nine
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen"""
+
+PUZZLE_INPUT = """9eightone"
 hczsqfour3nxm5seven4
 9twopjqkghmbone
 rhrfthv886vflthreeztvzs
